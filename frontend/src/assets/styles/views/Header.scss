@@ -1,0 +1,43 @@
+.nav-bar-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+
+    .nav-links-container{
+        gap:1rem;
+    }
+    h1 {
+        font-size: 2rem;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        position: relative;
+        right: 20px;
+    }
+
+    .logo-symbol-container{
+        width: 70px;
+        height: 25px;
+        position: relative;
+        left: 15px;
+
+        .logo-ball-black{
+            position: relative;
+            display: block;
+            width: 20%;
+            height: 60%;
+            right: 15%;
+            top: 0;
+            border-radius: 50%;
+            background-color: black;
+        }
+        .logo-ball-blue{
+            display: block;
+            position: absolute;
+            top: 20%;
+            width: 20%;
+            height: 60%;
+            border-radius: 50%;
+            background-color: #ad87f9e4;
+        }
+    }
+}

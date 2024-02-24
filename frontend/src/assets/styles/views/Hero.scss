@@ -1,0 +1,21 @@
+.hero-container{
+    padding-top: 100px;
+    max-width: 600px;
+
+
+    h2{
+        font-size: 3rem;
+    }
+
+    h3{
+        font-size: 1.5rem;
+    }
+
+    h2, h3{
+        color: $clr1;
+    }
+    p{
+        color: $clr2;
+        font-weight: bold;
+    }
+}
