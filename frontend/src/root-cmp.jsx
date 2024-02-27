@@ -6,6 +6,9 @@ import { Routes, Route } from 'react-router'
 import { Header } from './pages/header'
 import { Hero } from './pages/hero'
 
+// components
+import { LoginSignup } from './cmps/login-signup'
+
 export function RootCmp() {
 
     return (
@@ -14,6 +17,7 @@ export function RootCmp() {
                 <Header />
                 <Routes>
                 <Route path='/' element={<Hero/>}/>
+                <Route path='/sign-up' element={<LoginSignup/>}/>
                 </Routes>
             </div>
         </main>
