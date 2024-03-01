@@ -7,7 +7,9 @@ import { Header } from './pages/header'
 import { Hero } from './pages/hero'
 
 // components
-import { LoginSignup } from './cmps/login-signup'
+import { SignupPage } from './cmps/signup'
+import { LoginPage } from './cmps/login'
+
 
 export function RootCmp() {
 
@@ -17,7 +19,8 @@ export function RootCmp() {
                 <Header />
                 <Routes>
                 <Route path='/' element={<Hero/>}/>
-                <Route path='/sign-up' element={<LoginSignup/>}/>
+                <Route path='/sign-up' element={<SignupPage/>}/>
+                <Route path='/sign-in' element={<LoginPage/>}/>
                 </Routes>
             </div>
         </main>
