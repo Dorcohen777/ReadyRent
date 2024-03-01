@@ -8,7 +8,7 @@ import { Hero } from './pages/hero'
 
 // components
 import { SignupPage } from './cmps/signup'
-import { LoginPage } from './cmps/login'
+import { UserDashboard } from './cmps/userDashboard'
 
 
 export function RootCmp() {
@@ -18,9 +18,9 @@ export function RootCmp() {
             <div>
                 <Header />
                 <Routes>
-                <Route path='/' element={<Hero/>}/>
-                <Route path='/sign-up' element={<SignupPage/>}/>
-                <Route path='/sign-in' element={<LoginPage/>}/>
+                    <Route path='/' element={<Hero />} />
+                    <Route path='/sign-up' element={<SignupPage />} />
+                    <Route path='/userDashboard' element={<UserDashboard/>} />
                 </Routes>
             </div>
         </main>

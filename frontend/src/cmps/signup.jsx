@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service'
 import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 
-// component
-import { LoginPage } from './login'
+
+
 
 
 export function SignupPage() {
@@ -12,6 +11,7 @@ export function SignupPage() {
     const [isSignup, setIsSignup] = useState(false)
     const [users, setUsers] = useState([])
     const navigate = useNavigate()
+    const [isHaveAccount, setIsHaveAccount] = useState(false)
 
     useEffect(() => {
         loadUsers()
@@ -72,10 +72,13 @@ export function SignupPage() {
         setCredentials({ ...credentials, imgUrl })
     }
 
+    function onHaveAccClick() {
+        setIsHaveAccount(true)
+    }
+
     return (
         <div className="sign-up-container">
-
-            <div className="signup-form-container">
+            {!isHaveAccount ? <div className="signup-form-container">
                 <h2> Create an account</h2>
                 <form className="signup-form" onSubmit={onSignup}>
                     <input
@@ -103,9 +106,30 @@ export function SignupPage() {
                         required
                     />
                     <button >Signup!</button>
-                    <Link to={'/sign-in'}>Already have account? sign in</Link>
+                    <p onClick={() => setIsHaveAccount(!isHaveAccount)} className='pointer'>Already have account? sign in</p>
                 </form>
-            </div>
+            </div> : <section>
+                <div>
+                    <form className="signup-form" onSubmit={onLogin}>
+                        <input
+                            type="text"
+                            name="username-login"
+                            placeholder="Username"
+                            onChange={handleChangeLogin}
+                            required
+                        />
+                        <input
+                            type="password"
+                            name="password-login"
+                            placeholder="Password"
+                            onChange={handleChangeLogin}
+                            required
+                        />
+                        <button>Login</button>
+                    </form>
+                </div>
+                <h2>hi login</h2>
+            </section>}
         </div>
 
     )
