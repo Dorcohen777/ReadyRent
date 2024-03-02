@@ -8,7 +8,7 @@ import { Hero } from './pages/hero'
 
 // components
 import { SignupPage } from './cmps/signup'
-import { UserDashboard } from './cmps/userDashboard'
+import { UserDashboard } from './cmps/user-dashboard'
 
 
 export function RootCmp() {

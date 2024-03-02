@@ -10,6 +10,8 @@ export const expenseService = {
     getById,
     save,
     remove,
+    getExpenses,
+    // findUserIncome,
 }
 window.cs = expenseService
 
@@ -46,3 +48,18 @@ async function save(expense) {
     }
     return savedExpense
 }
+
+async function getExpenses(){
+    return await query(STORAGE_KEY)
+}
+
+
+
+
+// find curr user income
+// async function findUserIncome(){
+//     const currUser = userService.getLoggedinUser()
+//     // find by the currUserId look inside the expense object by owner the current ID
+//     const findFromExpenses = await storageService.query(STORAGE_KEY)
+//     console.log(findFromExpenses)
+// }
