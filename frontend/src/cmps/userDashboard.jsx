@@ -4,12 +4,14 @@ import { userService } from "../services/user.service"
 export function UserDashboard() {
     const [currUser, setCurrUser] = useState(null)
     const [newExpenses, setNewExpenses] = useState(false)
-    const [userData, setUserData] = useState({ monthlyIncome: 0, monthlyExpenses: [] })
     const objExpenses = { amount: 0, info: '' }
-
+    const [income, setIncome] = useState(0)
+    const [userData, setUserData] = useState({ monthlyIncome: 0, monthlyExpenses: [] })
+    
     useEffect(() => {
         const loggedInUser = getCurrUser()
         setCurrUser(loggedInUser.fullname)
+
     })
 
     // get the user name
@@ -29,8 +31,15 @@ export function UserDashboard() {
         const { name, value } = ev.target
         const numericValue = name === 'expenses-amount' ? +value : value;
         name === 'expenses-amount' ? objExpenses['amount'] = numericValue : objExpenses['info'] = value
+    }
 
-        console.log(objExpenses)
+    // when user set his income
+    function onSetBudget(income){
+        if (!income) return console.log('user didnt set monthly income')
+        setUserData((prevUserData) => ({
+            ...prevUserData,
+            monthlyIncome: income
+        }))
     }
 
     return (
@@ -41,11 +50,15 @@ export function UserDashboard() {
             <p>set information so our tool can help you track your monthly budget</p>
             <p>first, enter your monthly income</p>
             <p>after your enter your monthly income just add your monthly expenses</p>
+
             <div>
                 <label htmlFor="">your monthly income
-                    <input type="number" name="" placeholder="monthly income" />
+                    <input type="number" placeholder="monthly income" onChange={(e) =>setIncome(e.target.value)}/>
+                    <button onClick={() => onSetBudget(income)}>set budget</button>
                 </label>
             </div>
+
+
             <button onClick={() => setNewExpenses(!newExpenses)}>add new expenses</button>
 
 
